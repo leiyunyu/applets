@@ -1,0 +1,125 @@
+<!--index.wxml-->
+<scroll-view class="container">
+  <view class="head">
+    <swiper 
+    indicator-dots='{{indicatorDots}}'
+    interval="{{interval}}"
+    autoplay="{{autoplay}}"
+    circular="{{circular}}"
+    indicator-color="indicatorColor"
+    bindchange='change'
+    >
+      <block wx:for="{{swiperList}}">
+        <swiper-item class="swiper-item">{{item}}</swiper-item>
+      </block> 
+    </swiper>
+  </view>
+  <view class="shoplist">
+    <block wx:for="{{shoplistList}}">
+      <navigator
+        class="shop-item"
+        url="{{item.url}}"
+        open-type="navigate"
+        target="self">
+        <image src="{{item.img}}" class="shop-img"></image>
+        <view class="shop-text">{{item.span}}</view>
+      </navigator>
+    </block>
+  </view>
+  <view class="progress">
+    <text class="progress-text">进度条</text>
+    <progress 
+      class="progess-di"
+      percent="40"
+      show-info="true"
+      backgroundColor='#668B8B'
+      activeColor='#CD6090'
+      border-radius="3"
+      show-info='true'
+      stroke-width='15rpx'
+      active='true'
+      bindactiveend="end"
+    ></progress>
+  </view>
+  <view class="form">
+    <button
+      class="form-button"
+      size="mini"
+      type="primary"
+      plain="true"
+      open-type="share"
+    >请点我</button>
+    <checkbox-group
+      class="form-checkbox"
+      bindchange="checkboxChange"
+    >
+      <block wx:for="{{checkboxList}}">
+        <checkbox value="{{item}}" color="#FF7F00" class="checkbox-item">{{item}}</checkbox>
+      </block>
+    </checkbox-group>
+    <input
+      class="form-input"
+      placeholder="雷哈哈"
+      type='digit'
+      maxlength="12"
+      adjust-position="true"
+      confirm-type="send"
+    />
+    <slider
+      class="form-slider"
+      min="20"
+      max="100"
+      step="5"
+      backgroundColor='#668B8B'
+      activeColor='#CD6090'
+      block-size="15"
+      show-value="true"
+    ></slider>
+    <switch
+      class="form-switch"
+      type="switch"
+      color="#FF7F00"
+    >打开</switch>
+    <textarea class="form-textarea" placeholder="雷哈哈"></textarea> 
+  </view>
+
+  <!-- 用户 openid -->
+  <!-- <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view> -->
+
+
+  <!-- 上传图片 -->
+  <!-- <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    <view class="uploader-container" wx:if="{{imgUrl}}">
+      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+    </view>
+  </view> -->
+
+
+  <!-- 操作数据库 -->
+  <!-- <view class="uploader">
+    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+      <text>前端操作数据库</text>
+    </navigator>
+  </view> -->
+
+  <!-- 新建云函数 -->
+  <!-- <view class="uploader">
+    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
+      <text>快速新建云函数</text>
+    </navigator>
+  </view> -->
+
+</scroll-view>

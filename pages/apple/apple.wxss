@@ -1,0 +1,4 @@
+/* pages/apple/apple.wxss */
+.section{
+  margin-top: 50rpx;
+}

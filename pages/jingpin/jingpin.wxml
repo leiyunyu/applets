@@ -1,0 +1,7 @@
+<!--pages/jingpin/jingpin.wxml-->
+<!-- <text>pages/jingpin/jingpin.wxml</text> -->
+<scroll-view class="container">
+  <view class="button">
+    <button size="mini" bindtap="getUserInfo">点击我获取用户信息</button>
+  </view>
+</scroll-view>
